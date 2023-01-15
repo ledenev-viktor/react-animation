@@ -1,5 +1,5 @@
 {
-  "name": "react-animation",
+  "name": "@ledenev/react-animation",
   "version": "0.0.1",
   "description": "",
   "main": "build/index.js",
@@ -7,6 +7,10 @@
   "files": [
     "build"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ledenev-viktor/react-animation.git"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -16,7 +20,11 @@
   },
   "keywords": [],
   "author": "ledenev",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ledenev-viktor/react-animation/issues"
+  },
+  "homepage": "https://github.com/ledenev-viktor/react-animation#readme",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@rollup/plugin-commonjs": "^24.0.0",
