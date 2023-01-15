@@ -1,11 +1,11 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import typescript from "rollup-plugin-typescript2";
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
+const peerDepsExternal = require("rollup-plugin-peer-deps-external");
+const typescript = require("rollup-plugin-typescript2");
+const commonjs = require("@rollup/plugin-commonjs");
+const resolve = require("@rollup/plugin-node-resolve");
 
-import packageJson from './package.json' assert { type: 'json' };
+const packageJson = require('./package.json');
 
-export default {
+module.exports = {
     input: "src/index.ts",
     output: [
         {
