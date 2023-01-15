@@ -11,12 +11,7 @@ export type SizeAnimationProps = {
   children?: ReactNode | string;
 };
 
-const SizeAnimation: FC<SizeAnimationProps> = ({
-  in: visible,
-  type,
-  duration = 300,
-  children,
-}) => {
+const SizeAnimation: FC<SizeAnimationProps> = ({ in: visible, type, duration = 300, children }) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -29,29 +24,28 @@ const SizeAnimation: FC<SizeAnimationProps> = ({
   );
 
   const handleEntering = () => {
-    if (rootRef.current && type) {
-      rootRef.current.style[type] = `0`;
-    }
-    requestAnimationFrame(() => {
-      if (rootRef.current && contentRef.current && type) {
-        const size = getElementSize(contentRef.current, type);
+    if (!rootRef.current || !contentRef.current || !type) return;
 
-        rootRef.current.style[type] = `${size}px`;
-      }
+    rootRef.current.style[type] = `0`;
+
+    requestAnimationFrame(() => {
+      if (!rootRef.current || !contentRef.current || !type) return;
+
+      const size = getElementSize(contentRef.current, type);
+      rootRef.current.style[type] = `${size}px`;
     });
   };
 
   const handleExiting = () => {
-    if (!rootRef.current || !contentRef.current) return;
-    if (rootRef.current && type) {
-      const size = getElementSize(contentRef.current, type);
+    if (!rootRef.current || !contentRef.current || !type) return;
 
-      rootRef.current.style[type] = `${size}px`;
-    }
+    const size = getElementSize(contentRef.current, type);
+    rootRef.current.style[type] = `${size}px`;
+
     requestAnimationFrame(() => {
-      if (rootRef.current && type) {
-        rootRef.current.style[type] = `0`;
-      }
+      if (!rootRef.current || !contentRef.current || !type) return;
+      
+      rootRef.current.style[type] = `0`;
     });
   };
 

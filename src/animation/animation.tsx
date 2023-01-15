@@ -7,12 +7,10 @@ import {
 } from './animations/sizeAnimation';
 import { SlideAnimatinonProps } from './animations/sizeAnimation';
 
-export type TYPE_ANIMATIONS = {
-  slideUp: FC<SlideAnimatinonProps>;
-  slideDown: FC<SlideAnimatinonProps>;
-  slideLeft: FC<SlideAnimatinonProps>;
-  slideRight: FC<SlideAnimatinonProps>;
-};
+export type TYPE_ANIMATIONS = Record<
+  'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight',
+  FC<SlideAnimatinonProps>
+>;
 
 const ANIMATIONS: TYPE_ANIMATIONS = {
   slideUp: SlideUpAnimation,
@@ -21,7 +19,7 @@ const ANIMATIONS: TYPE_ANIMATIONS = {
   slideRight: SlideRightAnimation,
 };
 
-export interface AnimationProps {
+export type AnimationProps = {
   /**
    * Тип анимации
    */
@@ -41,7 +39,7 @@ export interface AnimationProps {
    * Дочерние элементы.
    */
   children: ReactNode;
-}
+};
 
 export const Animation: FC<AnimationProps> = ({ type, running, children, ...animationProps }) => {
   const Component = ANIMATIONS[type];
