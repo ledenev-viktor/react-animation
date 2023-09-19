@@ -1,14 +1,14 @@
-import React, { FC, ReactNode } from 'react';
+import React, { CSSProperties, FC, ReactNode } from "react";
 import {
   SlideUpAnimation,
   SlideDownAnimation,
   SlideLeftAnimation,
   SlideRightAnimation,
-} from './animations/sizeAnimation';
-import { SlideAnimatinonProps } from './animations/sizeAnimation';
+} from "./animations/sizeAnimation";
+import { SlideAnimatinonProps } from "./animations/sizeAnimation";
 
 export type TYPE_ANIMATIONS = Record<
-  'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight',
+  "slideUp" | "slideDown" | "slideLeft" | "slideRight",
   FC<SlideAnimatinonProps>
 >;
 
@@ -23,7 +23,7 @@ export type AnimationProps = {
   /**
    * Тип анимации
    */
-  type: 'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight';
+  type: "slideUp" | "slideDown" | "slideLeft" | "slideRight";
 
   /**
    * Переключатель анимации entering/exiting
@@ -39,13 +39,24 @@ export type AnimationProps = {
    * Дочерние элементы.
    */
   children: ReactNode;
+
+  /**
+   * Объект со стилями, которые приминяются в конце анимации
+   */
+  entered: CSSProperties;
 };
 
-export const Animation: FC<AnimationProps> = ({ type, running, children, ...animationProps }) => {
+export const Animation: FC<AnimationProps> = ({
+  type,
+  running,
+  children,
+  entered,
+  ...animationProps
+}) => {
   const Component = ANIMATIONS[type];
 
   return (
-    <Component in={running} {...animationProps}>
+    <Component in={running} entered={entered} {...animationProps}>
       {children}
     </Component>
   );

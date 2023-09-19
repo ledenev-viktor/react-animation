@@ -1,6 +1,6 @@
 {
   "name": "@ledenev/react-animation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -18,7 +18,14 @@
     "sb": "start-storybook -p 6006",
     "sb:export": "build-storybook"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-animation",
+    "slide left",
+    "slide right",
+    "slide down",
+    "slide up"
+  ],
   "author": "ledenev",
   "license": "MIT",
   "bugs": {
@@ -29,6 +36,7 @@
     "@babel/core": "^7.20.12",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.3",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
@@ -37,6 +45,7 @@
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/node-logger": "^6.5.15",
     "@storybook/react": "^6.5.15",
+    "@storybook/react-docgen-typescript-plugin": "^1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -57,15 +66,12 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.34.1",
     "ts-jest": "^29.0.5",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "webpack-hot-middleware": "^2.25.4"
   },
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
     "react-transition-group": ">=4.4.5"
-  },
-  "dependencies": {
-    "@storybook/react-docgen-typescript-plugin": "^1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0",
-    "webpack-hot-middleware": "^2.25.3"
   }
 }
